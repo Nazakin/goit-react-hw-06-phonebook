@@ -3,12 +3,17 @@ import { nanoid } from 'nanoid';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContactAction } from '../redux/contacts/actions';
 
 export const App = () => {
   const [contacts, setContacts] = useState([]);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const [filter, setFilter] = useState('');
+  const state = useSelector((state) => state)
+  const dispatch = useDispatch()
+
 
   useEffect(() => {
     const storedContacts = localStorage.getItem('contacts');
@@ -42,7 +47,7 @@ export const App = () => {
       number,
     };
 
-    setContacts((prevContacts) => [...prevContacts, newContact]);
+    dispatch(addContactAction(newContact));
     setName('');
     setNumber('');
   };

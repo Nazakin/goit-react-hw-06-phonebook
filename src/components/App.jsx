@@ -15,7 +15,7 @@ export const App = () => {
   const contacts = useSelector((state) => state.contacts)
   const dispatch = useDispatch()
 
-
+console.log(contacts)
   // useEffect(() => {
   //   const storedContacts = localStorage.getItem('contacts');
   //   if (storedContacts) {
@@ -35,7 +35,7 @@ export const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const isNameExist = contacts.some((contact) => contact.name.toLowerCase() === name.toLowerCase());
+    const isNameExist = contacts.contacts.some((contact) => contact.name.toLowerCase() === name.toLowerCase());
 
     if (isNameExist) {
       alert(`${name} is already in contacts.`);
@@ -62,7 +62,7 @@ export const App = () => {
     dispatch(removeContactAction(contactId))
   };
 
-  const filteredContacts = contacts.filter((contact) =>
+  const filteredContacts = contacts.contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filters.toLowerCase())
   );
 

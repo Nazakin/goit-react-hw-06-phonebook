@@ -4,3 +4,8 @@ export const addContactAction = (contact) => {
     }
 
 }
+export const removeContactAction = (contact) => {
+    return {
+        type: 'removeContact', payload: contact
+    }
+}

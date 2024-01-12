@@ -1,11 +1,4 @@
-export const addContactAction = (contact) => {
-    return{
-       type: 'addContact', payload: contact
-    }
+import { createAction } from "@reduxjs/toolkit"
 
-}
-export const removeContactAction = (contact) => {
-    return {
-        type: 'removeContact', payload: contact
-    }
-}
+export const addContactAction = createAction("addContact")
+export const removeContactAction = createAction("removeContact")

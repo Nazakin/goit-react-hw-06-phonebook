@@ -11,8 +11,8 @@ export const App = () => {
 
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const filters = useSelector((state) => state.filters)
-  const contacts = useSelector((state) => state.contacts)
+  const filters = useSelector((state) => state.filters.filters)
+  const contacts = useSelector((state) => state.contacts.contacts)
   const dispatch = useDispatch()
 
 console.log(contacts)
@@ -35,7 +35,7 @@ console.log(contacts)
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const isNameExist = contacts.contacts.some((contact) => contact.name.toLowerCase() === name.toLowerCase());
+    const isNameExist = contacts.some((contact) => contact.name.toLowerCase() === name.toLowerCase());
 
     if (isNameExist) {
       alert(`${name} is already in contacts.`);
@@ -62,7 +62,7 @@ console.log(contacts)
     dispatch(removeContactAction(contactId))
   };
 
-  const filteredContacts = contacts.contacts.filter((contact) =>
+  const filteredContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filters.toLowerCase())
   );
 

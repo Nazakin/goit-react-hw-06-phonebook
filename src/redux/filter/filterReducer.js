@@ -1,5 +1,5 @@
 const initialState = {
-    filters: null,
+    filters: "",
 }
 export const filterReducer = (state = initialState, action) => {
     if (action.type === 'filterContacts') {

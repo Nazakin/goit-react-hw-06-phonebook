@@ -1,5 +1,4 @@
-export const filterContactsAction = (filter) => {
-    return{
-        type: 'filterContacts', payload: filter
-    }
-}
+
+import { createAction } from "@reduxjs/toolkit";
+
+export const filterContactsAction = createAction("filterContacts")

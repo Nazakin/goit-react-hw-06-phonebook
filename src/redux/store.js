@@ -1,6 +1,7 @@
-import { combineReducers, createStore } from "redux"
+import { combineReducers } from "redux"
 import { contactsReducer } from "./contacts/contactsReducer"
 import { filterReducer } from "./filter/filterReducer"
+import { configureStore } from "@reduxjs/toolkit"
 
 
 const rootReducer = combineReducers({
@@ -8,4 +9,4 @@ const rootReducer = combineReducers({
     filters: filterReducer,
 })
 
-export const store = createStore(rootReducer)
+export const store = configureStore({reducer: rootReducer,})
